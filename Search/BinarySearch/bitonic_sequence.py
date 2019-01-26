@@ -12,9 +12,9 @@ def find_pivot_bitonic(arr, low, high):
 
     mid = (low + high)//2
 
-    if arr[mid-1] < arr[mid] and arr[mid] > arr[mid + 1]:
+    if arr[mid-1] <= arr[mid] and arr[mid] >= arr[mid + 1]:
         return arr[mid]
-    elif arr[mid - 1] < arr[mid] and arr[mid] < arr[mid + 1]:
+    elif arr[mid - 1] < arr[mid] < arr[mid + 1]:
         return find_pivot_bitonic(arr, mid + 1, high)
     else:
         return find_pivot_bitonic(arr, low, mid - 1)
@@ -23,6 +23,7 @@ def find_pivot_bitonic(arr, low, high):
 if __name__ == '__main__':
 
     inp = [1, 5, 7, 9, 6, 2]
+    # inp = [1, 1, 9, 8, 8, 1]
     print(find_pivot_bitonic(inp, 0, len(inp) - 1))
 
 
