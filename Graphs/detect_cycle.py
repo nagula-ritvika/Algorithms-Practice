@@ -4,9 +4,9 @@
 from collections import defaultdict
 
 
-def hasCycle(graph):
-    visited = defaultdict(lambda : False)
-    recStack = defaultdict(lambda : False)
+def has_cycle(graph):
+    visited = defaultdict(lambda: False)
+    recStack = defaultdict(lambda: False)
 
     for node in graph.keys():
         if not visited[node]:
@@ -16,14 +16,14 @@ def hasCycle(graph):
     return False
 
 
-def hasCycleUtil(node, visited, recStack, graph):
+def has_cycle_util(node, visited, recStack, graph):
 
     visited[node] = True
     recStack[node] = True
 
     for neighbor in graph[node]:
         if not visited[neighbor]:
-            if hasCycleUtil(neighbor, visited, recStack, graph):
+            if has_cycle_util(neighbor, visited, recStack, graph):
                 return True
             elif recStack[neighbor]:
                 return True
@@ -39,4 +39,4 @@ if __name__ == '__main__':
         3: [],
         4: []
     }
-    print(hasCycle(graph))
+    print(has_cycle(graph))
