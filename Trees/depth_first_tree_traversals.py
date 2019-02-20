@@ -45,6 +45,21 @@ def preorder(root):
         preorder(root.right)
 
 
+def preorder_iter(root):
+    if not root:
+        return
+    stack = [root]
+    while stack:
+        curr = stack.pop()
+        print(curr.val)
+        if curr.right is not None:
+            stack.append(curr.right)
+        if curr.left is not None:
+            stack.append(curr.left)
+
+
+
+
 def postorder(root):
     if root:
         postorder(root.left)
