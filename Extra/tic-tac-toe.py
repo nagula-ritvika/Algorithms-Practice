@@ -37,7 +37,7 @@ class TicTacToe(object):
 
         if row == col:
             self.diag += move
-        elif col + row == self.n - 1:
+        if col + row == self.n - 1:
             self.anti_diag += move
 
         if abs(self.rows[row]) == self.n or abs(self.cols[col]) == self.n or self.diag == self.n \
