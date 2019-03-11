@@ -1,0 +1,68 @@
+
+Question 1:
+
+144 is your favorite number. I started looking at the elements present in the web page, and also
+looking at network request being sent, but since there was nothing in there, I realized it would be
+better to write a script that performs get requests for every number between 100 and 1000
+(exclusive). The following code in written in Python 3.
+
+    import requests
+    from bs4 import BeautifulSoup
+
+
+    def find_fav_num():
+        uid = "remeeting"
+        pwd = "quiz"
+        endpoint_url = "https://remeeting.com/quiz/python_script.cgi?number="
+
+        for i in range(100, 1000):
+            page_content = requests.get(endpoint_url+str(i), auth=(uid, pwd)).content
+            soup = BeautifulSoup(page, 'html.parser')
+            if 'Sorry' not in soup.text:
+                print(i)
+                break
+
+
+
+Question 2:
+
+The following code in written in Python 3.
+
+    def improved_function(data):
+        if not data:
+            return 0
+        n = len(data)
+        s = sum(data)
+        ss = sum([x*x for x in data])
+
+        return ss/n - (s*s)/(n*n)
+
+
+Question 3:
+
+*Random* here is just an integer between 0 and 9 chosen randomly in every iteration. The following code in written in Python 3.
+
+    def process():
+        count = 1
+        for line in sys.stdin:
+            rndom_num = random.randint(0,9)
+            sys.stdout.write(str(rndom_num))
+            if count == 10:
+                sys.stderr.write(line)
+                count = 0
+            count += 1
+
+
+Question 4:
+
+I worked on building an Internet Relay Chatroom app written in JavaScript using Node.js and Sockets.io
+based on a client-server networking model. The project is hosted at - https://irc-chatroom.herokuapp.com/ .
+Users can either start or join a chat room and communicate with other users present in that room. I
+am proud of this project because when I was in my undergrad, I was really overwhelmed by my
+Computer Networks course. This project helped me overcome my fear of socket programming and helped
+me achieve a higher comfort level.
+
+
+Question 5:
+
+I would like to be asked what I learnt from this quiz?

@@ -24,7 +24,6 @@ def zigzagLevelOrder(root):
     while queue:
         count = len(queue)
         level = []
-        children = []
 
         while count > 0:
 
@@ -32,14 +31,13 @@ def zigzagLevelOrder(root):
             level.append(current.val)
 
             if current.left:
-                children.append(current.left)
+                queue.append(current.left)
 
             if current.right:
-                children.append(current.right)
+                queue.append(current.right)
 
             count -= 1
 
-        queue = children
         level = level if not flag else level[::-1]
         flag = not flag
         path.append(level)

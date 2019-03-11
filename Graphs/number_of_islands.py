@@ -37,3 +37,28 @@ def numIslands(grid):
 
     return islands
 
+# without using visited
+class Solution(object):
+    def area(self, grid, r, c):
+
+        if not (0 <= r < len(grid) and 0 <= c < len(grid[0])) or not grid[r][c]:
+            return 0
+
+        grid[r][c] = 0
+
+        return (1 + self.area(grid, r + 1, c) + self.area(grid, r - 1, c) + self.area(grid, r,
+                                                                                      c + 1) + self.area(
+            grid, r, c - 1))
+
+    def maxAreaOfIsland(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+
+        areas = []
+        for r in range(len(grid)):
+            for c in range(len(grid[0])):
+                areas.append(self.area(grid, r, c))
+
+        return max(areas)
