@@ -20,3 +20,7 @@ def productExceptSelf(nums):
         prod *= nums[i]
 
     return res
+
+
+if __name__ == '__main__':
+    print(productExceptSelf([1, 2, 3, 4]))
