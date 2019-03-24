@@ -16,3 +16,7 @@ def moveZeroes(nums):
             curr += 1
 
     return nums
+
+
+if __name__ == '__main__':
+    print(moveZeroes([3, 4, 0, 10, 0, 9]))
